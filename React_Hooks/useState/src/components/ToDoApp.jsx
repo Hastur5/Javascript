@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import ToDo from './ToDo'
+import './toDoApp.css'
 
 export default function ToDoApp () {
-  const [title, setTitle] = useState('Hola')
+  const [title, setTitle] = useState('')
   const [toDo, setToDo] = useState([])
 
   function handleChange (e) {
@@ -22,12 +23,18 @@ export default function ToDoApp () {
     temp.unshift(newToDo)
     setToDo(temp)
     // setToDo([...toDo, newToDo])
+    setTitle('')
   }
 
   function handleUpdate (id, value) {
     const temp = [...toDo]
     const item = temp.find(item => item.id === id)
     item.title = value
+    setToDo(temp)
+  }
+
+  function handleDelete (id) {
+    const temp = toDo.filter((item) => item.id !== id)
     setToDo(temp)
   }
 
@@ -42,10 +49,10 @@ export default function ToDoApp () {
           className='buttonCreate'
         />
       </form>
-      <div className='toDoContainer'>
+      <div className='toDosContainer'>
         {
             toDo.map(item => (
-              <ToDo key={item.id} item={item} onUpdate={handleUpdate} />
+              <ToDo key={item.id} item={item} onUpdate={handleUpdate} onDelete={handleDelete} />
             ))
         }
       </div>
