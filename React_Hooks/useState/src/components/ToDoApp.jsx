@@ -28,7 +28,7 @@ export default function ToDoApp () {
 
   function handleUpdate (id, value) {
     const temp = [...toDo]
-    const item = temp.find(item => item.id === id)
+    const item = temp.find((item) => item.id === id)
     item.title = value
     setToDo(temp)
   }
@@ -50,11 +50,14 @@ export default function ToDoApp () {
         />
       </form>
       <div className='toDosContainer'>
-        {
-            toDo.map(item => (
-              <ToDo key={item.id} item={item} onUpdate={handleUpdate} onDelete={handleDelete} />
-            ))
-        }
+        {toDo.map((item) => (
+          <ToDo
+            key={item.id}
+            item={item}
+            onUpdate={handleUpdate}
+            onDelete={handleDelete}
+          />
+        ))}
       </div>
     </div>
   )
