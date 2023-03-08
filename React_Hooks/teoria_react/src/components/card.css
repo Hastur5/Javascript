@@ -1,0 +1,17 @@
+.card {
+  background-color: #8a2be2;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.on {
+  background-color: green;
+}
+
+.off {
+  background-color: gray;
+}
+
+.image {
+  width: 100px;
+}
