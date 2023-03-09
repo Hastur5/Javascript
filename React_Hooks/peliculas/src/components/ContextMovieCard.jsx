@@ -5,8 +5,9 @@ import { MovieCard } from "./MovieCard";
 export function ContextMovieCard() {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
-    get("/discover/movie").then((data) => {
+    get("/discover/tv").then((data) => {
       setMovies(data.results);
+      console.log(data)
     });
   }, []);
   return (

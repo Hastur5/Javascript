@@ -1,3 +1,10 @@
-export function MovieCard() {
-  return <h1>Movie Card</h1>;
+export function MovieCard(movie) {
+  const imageURL = "https://image.tmdb.org/t/p/w300" +movie.poster_path;
+  return (
+    <div>
+      <li>
+        <img src="" alt="" />
+      </li>
+    </div>
+  );
 }
