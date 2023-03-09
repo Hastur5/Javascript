@@ -11,9 +11,9 @@ export function ContextMovieCard() {
   }, []);
   return (
     <ul>
-        {movies.map((movie)=>{
+        {movies.map(() =>(
             <MovieCard />
-        })}
+        ))}
     </ul>
   );
 }
