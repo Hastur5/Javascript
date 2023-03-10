@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { get } from "../data/httpClient";
 import { MovieCard } from "./MovieCard";
-import { routes } from "react-router-dom";
 import "./ContextMovieCard.css";
 
 export function ContextMovieCard() {
@@ -9,6 +8,7 @@ export function ContextMovieCard() {
   useEffect(() => {
     get("/discover/movie").then((data) => {
       setMovies(data.results);
+      console.log(data)
     });
   }, []);
   return (
