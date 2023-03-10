@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import { get } from "../data/httpClient";
 import { MovieCard } from "./MovieCard";
+import { routes } from "react-router-dom";
+import "./ContextMovieCard.css";
 
 export function ContextMovieCard() {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
-    get("/discover/tv").then((data) => {
+    get("/discover/movie").then((data) => {
       setMovies(data.results);
-      console.log(data)
     });
   }, []);
   return (
-    <ul>
-        {movies.map(() =>(
-            <MovieCard />
-        ))}
+    <ul className="container">
+      {movies.map((movie) => (
+        <MovieCard key={movie.id} movie={movie} />
+      ))}
     </ul>
   );
 }
